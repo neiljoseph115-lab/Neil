@@ -3,50 +3,55 @@ const products = [
     name: 'Nike Air Force 1',
     category: 'Sneakers',
     price: '$120',
+    image: '/products/air-force-1.jpg',
   },
+
   {
-    name: 'Air Jordan 1',
-    category: 'Sneakers',
-    price: '$180',
-  },
-  {
-    name: 'PUMA LaFrancé',
-    category: 'Sneakers',
-    price: '$110',
-  },
-  {
-    name: 'Nike Dunk Low',
-    category: 'Sneakers',
-    price: '$125',
-  },
-  {
-    name: 'Jordan 4 Retro',
+    name: 'Jordan 4 Black White',
     category: 'Sneakers',
     price: '$220',
+    image: '/products/jordan-4-black-white.jpg',
   },
+
   {
-    name: 'Rhinestone Graphic Tee',
-    category: 'Apparel',
-    price: '$75',
+    name: 'PUMA LaFrancé Purple',
+    category: 'Sneakers',
+    price: '$140',
+    image: '/products/puma-lafrance-purple.jpg',
   },
+
   {
-    name: 'Washed Distressed Tee',
+    name: 'Affliction Octopus Tee',
     category: 'Apparel',
     price: '$65',
+    image: '/products/affliction-octopus.jpg',
   },
+
   {
-    name: 'Rockstar Oversized Tee',
+    name: 'Memories Vintage Tee',
     category: 'Apparel',
-    price: '$85',
+    price: '$55',
+    image: '/products/memories-tee.jpg',
   },
+
   {
-    name: 'Signature Hoodie',
+    name: 'Skeleton Graphic Tee',
     category: 'Apparel',
-    price: '$120',
+    price: '$60',
+    image: '/products/skeleton-tee.jpg',
   },
+
   {
-    name: 'Classic Cap',
-    category: 'Accessories',
-    price: '$45',
+    name: 'Paper Chaser Tee',
+    category: 'Apparel',
+    price: '$55',
+    image: '/products/paper-chaser-tee.jpg',
   },
-];
+
+  {
+    name: 'Smile Through The Pain Tee',
+    category: 'Apparel',
+    price: '$55',
+    image: '/products/smile-through-pain-tee.jpg',
+  },
+]
