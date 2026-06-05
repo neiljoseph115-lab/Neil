@@ -1,9 +1,11 @@
-import React from 'react';
+import Navbar from './components/home/Navbar';
+import Hero from './components/home/Hero';
 
 export default function App() {
   return (
-    <div style={{ padding: 40, color: 'black' }}>
-      Hello Neil
+    <div className="bg-black text-white min-h-screen">
+      <Navbar />
+      <Hero />
     </div>
   );
 }
