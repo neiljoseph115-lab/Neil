@@ -2,10 +2,12 @@ import Navbar from './components/home/Navbar';
 import Hero from './components/home/Hero';
 
 const products = [
-  { name: 'Essential Tee', price: '$95' },
-  { name: 'Signature Hoodie', price: '$140' },
-  { name: 'Classic Cap', price: '$45' },
-  { name: 'Utility Jacket', price: '$180' },
+  { name: 'Nike Air Force 1', category: 'Sneakers', price: '$120' },
+  { name: 'Air Jordan 1', category: 'Sneakers', price: '$180' },
+  { name: 'PUMA LaFrancé', category: 'Sneakers', price: '$110' },
+  { name: 'Essential Tee', category: 'Apparel', price: '$45' },
+  { name: 'Signature Hoodie', category: 'Apparel', price: '$95' },
+  { name: 'Classic Cap', category: 'Accessories', price: '$35' },
 ];
 
 function ShopSection() {
@@ -17,51 +19,47 @@ function ShopSection() {
         </p>
 
         <h2 className="mt-3 text-4xl font-bold uppercase tracking-tight">
-          New Arrivals
+          Sneakers & Apparel
         </h2>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-4">
+        <div className="mt-8 flex flex-wrap gap-3 text-xs font-bold uppercase tracking-[0.25em]">
+          <button className="border border-white bg-white px-5 py-3 text-black">
+            All
+          </button>
+          <button className="border border-white/30 px-5 py-3 text-white">
+            Sneakers
+          </button>
+          <button className="border border-white/30 px-5 py-3 text-white">
+            Apparel
+          </button>
+          <button className="border border-white/30 px-5 py-3 text-white">
+            Accessories
+          </button>
+        </div>
+
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
           {products.map((product) => (
             <div key={product.name} className="group">
-              <div className="aspect-[4/5] bg-white/10 transition duration-300 group-hover:bg-white/20" />
+              <div className="flex aspect-[4/5] items-center justify-center bg-white/10 text-center text-xs uppercase tracking-[0.25em] text-white/40 transition duration-300 group-hover:bg-white/20">
+                Product Image
+              </div>
 
-              <div className="mt-4 flex items-center justify-between">
-                <h3 className="text-sm font-semibold uppercase tracking-[0.2em]">
-                  {product.name}
-                </h3>
+              <div className="mt-4 flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.25em] text-white/40">
+                    {product.category}
+                  </p>
+                  <h3 className="mt-1 text-sm font-semibold uppercase tracking-[0.2em]">
+                    {product.name}
+                  </h3>
+                </div>
+
                 <p className="text-sm text-white/60">{product.price}</p>
               </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
-function FeaturedCollection() {
-  return (
-    <section className="bg-[#0b1020] px-6 py-20 text-white">
-      <div className="mx-auto max-w-6xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.4em] text-white/50">
-          Drop 001
-        </p>
-
-        <h2 className="mt-3 text-3xl font-bold uppercase tracking-tight">
-          Featured Collection
-        </h2>
-
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {['Essential Tee', 'Signature Hoodie', 'Utility Jacket'].map((item) => (
-            <div key={item} className="group">
-              <div className="aspect-[4/5] bg-white/10 transition duration-300 group-hover:bg-white/20" />
-
-              <div className="mt-4 flex items-center justify-between">
-                <h3 className="text-sm font-semibold uppercase tracking-[0.2em]">
-                  {item}
-                </h3>
-                <p className="text-sm text-white/60">$95</p>
-              </div>
+              <button className="mt-4 w-full border border-white/30 py-3 text-xs font-bold uppercase tracking-[0.25em] transition hover:bg-white hover:text-black">
+                View Product
+              </button>
             </div>
           ))}
         </div>
@@ -75,7 +73,6 @@ export default function App() {
     <div className="min-h-screen bg-[#0b1020] text-white">
       <Navbar />
       <Hero />
-      <FeaturedCollection />
       <ShopSection />
     </div>
   );
