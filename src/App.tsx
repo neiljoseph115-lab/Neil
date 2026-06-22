@@ -55,8 +55,3 @@ const products = [
     image: '/products/smile-through-pain-tee.jpg',
   },
 ]
-function App() {
-  return <div>Neil Store</div>;
-}
-
-export default App;
