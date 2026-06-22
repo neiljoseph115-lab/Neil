@@ -17,7 +17,7 @@ const products = [
     name: 'PUMA LaFrancé Purple',
     category: 'Sneakers',
     price: '$140',
-    image: '/IMG_6427.jpeg',
+    image: 'https://raw.githubusercontent.com/neiljoseph115-lab/Neil/main/IMG_6427.jpeg',
   },
 
   {
