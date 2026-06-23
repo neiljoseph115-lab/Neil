@@ -3,7 +3,7 @@ const products = [
     name: 'Nike Air Force 1',
     category: 'Sneakers',
     price: '$120',
-    image: '/products/air-force-1.jpg',
+    image: '/products/IMG_6425.jpeg',
   },
 
   {
