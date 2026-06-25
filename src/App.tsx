@@ -59,6 +59,13 @@ function App() {
   return (
     <div>
       <h1>Neil Store</h1>
+      {products.map((product) => (
+        <div key={product.name}>
+          <img src={product.image} alt={product.name} width="200" />
+          <h2>{product.name}</h2>
+          <p>{product.price}</p>
+        </div>
+      ))}
     </div>
   );
 }
