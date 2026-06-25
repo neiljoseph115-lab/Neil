@@ -57,15 +57,49 @@ const products = [
 ]
 function App() {
   return (
-    <div>
-      <h1>Neil Store</h1>
-      {products.map((product) => (
-        <div key={product.name}>
-          <img src={product.image} alt={product.name} width="200" />
-          <h2>{product.name}</h2>
-          <p>{product.price}</p>
-        </div>
-      ))}
+    <div
+      style={{
+        backgroundColor: "#000",
+        color: "#fff",
+        minHeight: "100vh",
+        padding: "20px",
+        fontFamily: "Arial, sans-serif",
+      }}
+    >
+      <h1
+        style={{
+          textAlign: "center",
+          fontSize: "3rem",
+          letterSpacing: "4px",
+          marginBottom: "40px",
+        }}
+      >
+        NEIL
+      </h1>
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+          gap: "30px",
+        }}
+      >
+        {products.map((product) => (
+          <div key={product.name}>
+            <img
+              src={product.image}
+              alt={product.name}
+              style={{
+                width: "100%",
+                height: "300px",
+                objectFit: "cover",
+              }}
+            />
+            <h2>{product.name}</h2>
+            <p>{product.price}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
