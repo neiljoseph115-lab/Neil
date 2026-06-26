@@ -9,7 +9,7 @@ const products = [
     name: 'Jordan 4 Black White',
     category: 'Sneakers',
     price: '$220',
-    image: '/products/IMG_6428.jpeg',
+    image: '',
   },
   {
     name: 'PUMA LaFrancé Purple',
