@@ -46,10 +46,28 @@ const products = [
 function App() {
   return (
     <div style={styles.page}>
-      <header style={styles.header}>
-        <h1 style={styles.logo}>NEIL</h1>
-        <p style={styles.tagline}>Streetwear & Sneakers</p>
-      </header>
+      <header style={styles.hero}>
+  <nav style={styles.nav}>
+    <h1 style={styles.brand}>NEIL</h1>
+    <div style={styles.icons}>⌕ ♙ ▢ ☰</div>
+  </nav>
+
+  <div style={styles.heroContent}>
+    <h2 style={styles.heroTitle}>
+      Engineered for Presence.
+    </h2>
+
+    <div style={styles.buttons}>
+      <button style={styles.primaryButton}>
+        SHOP NOW
+      </button>
+
+      <button style={styles.secondaryButton}>
+        EXPLORE
+      </button>
+    </div>
+  </div>
+</header>
 
       <div style={styles.grid}>
         {products.map((product) => (
@@ -124,10 +142,64 @@ const styles = {
     margin: '0 0 10px',
   },
   price: {
-    fontSize: '1.2rem',
-    margin: 0,
-    color: '#fff',
-  },
+  fontSize: '1.2rem',
+  margin: 0,
+  color: '#fff',
+},
+
+hero: {
+  minHeight: '100vh',
+  padding: '28px',
+  backgroundColor: '#101522',
+},
+
+nav: {
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+},
+
+brand: {
+  fontSize: '2rem',
+  margin: 0,
+},
+
+icons: {
+  fontSize: '1.5rem',
+},
+
+heroContent: {
+  textAlign: 'center' as const,
+  marginTop: '120px',
+},
+
+heroTitle: {
+  fontSize: '4rem',
+  fontWeight: 700,
+  marginBottom: '40px',
+},
+
+buttons: {
+  display: 'flex',
+  justifyContent: 'center',
+  gap: '20px',
+},
+
+primaryButton: {
+  padding: '18px 40px',
+  border: 'none',
+  backgroundColor: '#fff',
+  color: '#000',
+  fontWeight: 700,
+},
+
+secondaryButton: {
+  padding: '18px 40px',
+  border: '1px solid #fff',
+  backgroundColor: 'transparent',
+  color: '#fff',
+},
+
 };
 
 export default App;
