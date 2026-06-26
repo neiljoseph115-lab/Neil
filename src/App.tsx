@@ -121,36 +121,18 @@ const styles = {
     borderRadius: '18px',
     overflow: 'hidden',
   },
-  image: {
-    width: '100%',
-    height: '330px',
-    objectFit: 'cover' as const,
-    display: 'block',
-  },
-  info: {
-    padding: '18px',
-  },
-  category: {
-    color: '#888',
-    fontSize: '0.85rem',
-    textTransform: 'uppercase' as const,
-    letterSpacing: '2px',
-    margin: '0 0 8px',
-  },
-  name: {
-    fontSize: '1.3rem',
-    margin: '0 0 10px',
-  },
-  price: {
-  fontSize: '1.2rem',
-  margin: 0,
+  page: {
+  backgroundColor: '#101522',
   color: '#fff',
+  minHeight: '100vh',
+  padding: '0',
+  fontFamily: 'Arial, sans-serif',
 },
 
 hero: {
   minHeight: '100vh',
-  padding: '28px',
   backgroundColor: '#101522',
+  padding: '28px',
 },
 
 nav: {
@@ -162,10 +144,13 @@ nav: {
 brand: {
   fontSize: '2rem',
   margin: 0,
+  color: '#fff',
+  fontWeight: 300,
 },
 
 icons: {
   fontSize: '1.5rem',
+  color: '#fff',
 },
 
 heroContent: {
@@ -177,6 +162,7 @@ heroTitle: {
   fontSize: '4rem',
   fontWeight: 700,
   marginBottom: '40px',
+  color: '#fff',
 },
 
 buttons: {
@@ -191,12 +177,62 @@ primaryButton: {
   backgroundColor: '#fff',
   color: '#000',
   fontWeight: 700,
+  cursor: 'pointer',
 },
 
 secondaryButton: {
   padding: '18px 40px',
   border: '1px solid #fff',
   backgroundColor: 'transparent',
+  color: '#fff',
+  cursor: 'pointer',
+},
+
+grid: {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+  gap: '32px',
+  maxWidth: '1200px',
+  margin: '0 auto',
+  padding: '40px 28px',
+  backgroundColor: '#101522',
+},
+
+card: {
+  backgroundColor: '#101522',
+  border: '1px solid rgba(255,255,255,0.1)',
+  borderRadius: '18px',
+  overflow: 'hidden',
+},
+
+image: {
+  width: '100%',
+  height: '330px',
+  objectFit: 'cover' as const,
+  display: 'block',
+},
+
+info: {
+  padding: '18px',
+},
+
+category: {
+  color: '#aaa',
+  fontSize: '0.85rem',
+  textTransform: 'uppercase' as const,
+  letterSpacing: '2px',
+  margin: '0 0 8px',
+},
+
+name: {
+  fontSize: '1.3rem',
+  margin: '0 0 10px',
+  color: '#fff',
+},
+
+price: {
+  fontSize: '1.2rem',
+  margin: 0,
   color: '#fff',
 },
 
