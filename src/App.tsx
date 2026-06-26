@@ -130,9 +130,9 @@ const styles = {
 },
 
 hero: {
-  minHeight: '100vh',
   backgroundColor: '#101522',
   padding: '28px',
+  paddingBottom: '60px',
 },
 
 nav: {
@@ -155,7 +155,7 @@ icons: {
 
 heroContent: {
   textAlign: 'center' as const,
-  marginTop: '80px',
+  marginTop: '40px',
 },
 
 heroTitle: {
