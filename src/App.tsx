@@ -27,7 +27,7 @@ const products = [
     name: 'Memories Vintage Tee',
     category: 'Apparel',
     price: '$55',
-    image: '',
+    image: '/products/IMG_6428.jpeg',
   },
   {
     name: 'Skeleton Graphic Tee',
