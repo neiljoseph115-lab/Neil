@@ -18,29 +18,28 @@ const products = [
     image: '/products/IMG_6419.jpeg',
   },
   {
-    {
-  name: 'Affliction Octopus Tee',
-  category: 'Apparel',
-  price: '$65',
-  image: '/products/IMG_6429.webp',
-},
-{
-  name: 'Memories Vintage Tee',
-  category: 'Apparel',
-  price: '$55',
-  image: '/products/IMG_6428.jpeg',
-},
-{
-  name: 'Skeleton Graphic Tee',
-  category: 'Apparel',
-  price: '$60',
-  image: '/products/IMG_6432.webp',
-},
-{
-  name: 'Paper Chaser Tee',
-  category: 'Apparel',
-  price: '$55',
-  image: '/products/IMG_6431.webp',
+    name: 'Affliction Octopus Tee',
+    category: 'Apparel',
+    price: '$65',
+    image: '/products/IMG_6429.webp',
+  },
+  {
+    name: 'Memories Vintage Tee',
+    category: 'Apparel',
+    price: '$55',
+    image: '/products/IMG_6417.jpeg',
+  },
+  {
+    name: 'Skeleton Graphic Tee',
+    category: 'Apparel',
+    price: '$60',
+    image: '/products/IMG_6432.webp',
+  },
+  {
+    name: 'Paper Chaser Tee',
+    category: 'Apparel',
+    price: '$55',
+    image: '/products/IMG_6431.webp',
   },
 ];
 
