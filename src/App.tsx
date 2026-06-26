@@ -155,11 +155,11 @@ icons: {
 
 heroContent: {
   textAlign: 'center' as const,
-  marginTop: '120px',
+  marginTop: '80px',
 },
 
 heroTitle: {
-  fontSize: '2.8rem',
+  fontSize: '2.5rem',
   fontWeight: 700,
   marginBottom: '30px',
   color: '#fff',
@@ -172,7 +172,7 @@ buttons: {
 },
 
 primaryButton: {
-  padding: '18px 40px',
+  padding: '16px 32px',
   border: 'none',
   backgroundColor: '#fff',
   color: '#000',
@@ -181,7 +181,7 @@ primaryButton: {
 },
 
 secondaryButton: {
-  padding: '18px 40px',
+  padding: '16px 32px',
   border: '1px solid #fff',
   backgroundColor: 'transparent',
   color: '#fff',
