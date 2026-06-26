@@ -15,7 +15,7 @@ const products = [
     name: 'PUMA LaFrancé Purple',
     category: 'Sneakers',
     price: '$140',
-    image: '',
+    image: '/products/IMG_6427.jpeg',
   },
   {
     name: 'Affliction Octopus Tee',
