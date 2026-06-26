@@ -1,11 +1,46 @@
 const products = [
-image: '/products/IMG_6425.jpeg' // Nike
-image: '/products/JORDAN-FILE-NAME.jpeg' // Jordan
-image: '/products/PUMA-FILE-NAME.jpeg' // Puma
-image: '/products/IMG_6429.webp' // Affliction
-image: '/products/IMG_6428.jpeg' // Memories
-image: '/products/IMG_6432.webp' // Skeleton
-image: '/products/IMG_6431.webp' // Paper Chaser
+  {
+    name: 'Nike Air Force 1',
+    category: 'Sneakers',
+    price: '$120',
+    image: '/products/IMG_6425.jpeg',
+  },
+  {
+    name: 'Jordan 4 Black White',
+    category: 'Sneakers',
+    price: '$220',
+    image: '/products/IMG_6426.jpeg',
+  },
+  {
+    name: 'PUMA LaFrancé Purple',
+    category: 'Sneakers',
+    price: '$140',
+    image: '/products/IMG_6427.jpeg',
+  },
+  {
+    name: 'Affliction Octopus Tee',
+    category: 'Apparel',
+    price: '$65',
+    image: '/products/IMG_6429.webp',
+  },
+  {
+    name: 'Memories Vintage Tee',
+    category: 'Apparel',
+    price: '$55',
+    image: '/products/IMG_6428.jpeg',
+  },
+  {
+    name: 'Skeleton Graphic Tee',
+    category: 'Apparel',
+    price: '$60',
+    image: '/products/IMG_6432.webp',
+  },
+  {
+    name: 'Paper Chaser Tee',
+    category: 'Apparel',
+    price: '$55',
+    image: '/products/IMG_6431.webp',
+  },
 ];
 
 function App() {
