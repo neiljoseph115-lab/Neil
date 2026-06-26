@@ -159,9 +159,9 @@ heroContent: {
 },
 
 heroTitle: {
-  fontSize: '4rem',
+  fontSize: '2.8rem',
   fontWeight: 700,
-  marginBottom: '40px',
+  marginBottom: '30px',
   color: '#fff',
 },
 
