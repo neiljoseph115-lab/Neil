@@ -3,21 +3,7 @@ const products = [
     name: 'Nike Air Force 1',
     category: 'Sneakers',
     price: '$120',
-    image: '/products/IMG_6425.jpeg',
-  },
-
-  {
-    name: 'Jordan 4 Black White',
-    category: 'Sneakers',
-    price: '$220',
-    image: '/products/IMG_6428.jpeg',
-  },
-
-  {
-    name: 'PUMA LaFrancé Purple',
-    category: 'Sneakers',
-    price: '$140',
-    image: '/products/IMG_6419.jpeg',
+    image: '/products/air-force-1.jpg',
   },
 
   {
