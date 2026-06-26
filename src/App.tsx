@@ -5,47 +5,54 @@ const products = [
     price: '$120',
     image: '/products/IMG_6425.jpeg',
   },
+
   {
     name: 'Jordan 4 Black White',
     category: 'Sneakers',
     price: '$220',
-    image: '/products/jordan-4-black-white.jpg',
+    image: '/products/IMG_6428.jpeg',
   },
+
   {
     name: 'PUMA LaFrancé Purple',
     category: 'Sneakers',
     price: '$140',
-    image: 'https://raw.githubusercontent.com/neiljoseph115-lab/Neil/main/IMG_6427.jpeg',
+    image: '/products/IMG_6419.jpeg',
   },
+
   {
     name: 'Affliction Octopus Tee',
     category: 'Apparel',
     price: '$65',
-    image: 'https://raw.githubusercontent.com/neiljoseph115-lab/Neil/main/IMG_6427.jpeg',
+    image: '/products/IMG_6418.jpeg',
   },
+
   {
     name: 'Memories Vintage Tee',
     category: 'Apparel',
     price: '$55',
-    image: 'https://raw.githubusercontent.com/neiljoseph115-lab/Neil/main/IMG_6427.jpeg',
+    image: '/products/IMG_6417.jpeg',
   },
+
   {
     name: 'Skeleton Graphic Tee',
     category: 'Apparel',
     price: '$60',
-    image: 'https://raw.githubusercontent.com/neiljoseph115-lab/Neil/main/IMG_6427.jpeg',
+    image: '/products/IMG_6429.webp',
   },
+
   {
     name: 'Paper Chaser Tee',
     category: 'Apparel',
     price: '$55',
-    image: 'https://raw.githubusercontent.com/neiljoseph115-lab/Neil/main/IMG_6427.jpeg',
+    image: '/products/IMG_6430.webp',
   },
+
   {
     name: 'Smile Through The Pain Tee',
     category: 'Apparel',
     price: '$55',
-    image: 'https://raw.githubusercontent.com/neiljoseph115-lab/Neil/main/IMG_6427.jpeg',
+    image: '/products/IMG_6431.webp',
   },
 ];
 
