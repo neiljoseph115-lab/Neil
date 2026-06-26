@@ -5,35 +5,42 @@ const products = [
     price: '$120',
     image: '/products/air-force-1.jpg',
   },
-
+  {
+    name: 'Jordan 4 Black White',
+    category: 'Sneakers',
+    price: '$220',
+    image: '/products/IMG_6428.jpeg',
+  },
+  {
+    name: 'PUMA LaFrancé Purple',
+    category: 'Sneakers',
+    price: '$140',
+    image: '/products/IMG_6419.jpeg',
+  },
   {
     name: 'Affliction Octopus Tee',
     category: 'Apparel',
     price: '$65',
-    image: '/products/IMG_6418.jpeg',
+    image: '/products/IMG_6432.webp',
   },
-
   {
     name: 'Memories Vintage Tee',
     category: 'Apparel',
     price: '$55',
     image: '/products/IMG_6417.jpeg',
   },
-
   {
     name: 'Skeleton Graphic Tee',
     category: 'Apparel',
     price: '$60',
-    image: '/products/IMG_6429.webp',
+    image: '/products/IMG_6418.jpeg',
   },
-
   {
     name: 'Paper Chaser Tee',
     category: 'Apparel',
     price: '$55',
     image: '/products/IMG_6430.webp',
   },
-
   {
     name: 'Smile Through The Pain Tee',
     category: 'Apparel',
