@@ -7,11 +7,11 @@ export default function Navbar() {
         NEIL
       </div>
 
-      <div className="flex items-center gap-6">
-        <Search className="w-7 h-7" strokeWidth={1.7} />
-        <User className="w-7 h-7" strokeWidth={1.7} />
-        <ShoppingBag className="w-7 h-7" strokeWidth={1.7} />
-        <Menu className="w-8 h-8" strokeWidth={1.7} />
+      <div className="text-2xl font-light tracking-[3px]">
+        <Search className="w-5 h-5" strokeWidth={1.7} />
+        <User className="w-5 h-5" strokeWidth={1.7} />
+        <ShoppingBag className="w-5 h-5" strokeWidth={1.7} />
+        <Menu className="w-6 h-6" strokeWidth={1.7} />
       </div>
     </nav>
   );
