@@ -9,11 +9,11 @@ export default function Navbar() {
         <a href="#" className="hover:text-gray-400 transition-colors">Collections</a>
         <a href="#" className="hover:text-gray-400 transition-colors">Our Story</a>
       </div>
-      <div className="flex gap-4">
-        <Search className="w-5 h-5 cursor-pointer hover:text-gray-400" />
-        <User className="w-5 h-5 cursor-pointer hover:text-gray-400" />
-        <ShoppingBag className="w-5 h-5 cursor-pointer hover:text-gray-400" />
-        <Menu className="w-5 h-5 cursor-pointer md:hidden" />
+      <div className="flex items-center gap-6">
+        <Search className="w-7 h-7 cursor-pointer text-[#f5f1e8]" strokeWidth={1.7} />
+<User className="w-7 h-7 cursor-pointer text-[#f5f1e8]" strokeWidth={1.7} />
+<ShoppingBag className="w-7 h-7 cursor-pointer text-[#f5f1e8]" strokeWidth={1.7} />
+<Menu className="w-8 h-8 cursor-pointer text-[#f5f1e8]" strokeWidth={1.7} />
       </div>
     </nav>
   );
