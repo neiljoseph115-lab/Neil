@@ -1,3 +1,5 @@
+import Navbar from './Navbar';
+
 const products = [
   {
     name: 'Nike Air Force 1',
@@ -47,10 +49,7 @@ function App() {
   return (
     <div style={styles.page}>
       <header style={styles.hero}>
-  <nav style={styles.nav}>
-    <h1 style={styles.brand}>NEIL</h1>
-    <div style={styles.icons}>⌕ ♙ ▢ ☰</div>
-  </nav>
+  <Navbar />
 
   <div style={styles.heroContent}>
     <h2 style={styles.heroTitle}>
