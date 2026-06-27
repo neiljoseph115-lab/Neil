@@ -154,7 +154,7 @@ icons: {
 
 heroContent: {
   textAlign: 'center' as const,
-  marginTop: '90px',
+  marginTop: '70px',
 },
 
 heroTitle: {
