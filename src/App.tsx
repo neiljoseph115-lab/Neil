@@ -15,10 +15,17 @@ function App() {
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
 const [cart, setCart] = useState<any[]>([]);
 
-  return (
+const [searchOpen, setSearchOpen] = useState(false);
+const [searchTerm, setSearchTerm] = useState('');
+  
+return (
     <div style={styles.page}>
       <header style={styles.hero}>
-        <Navbar cart={cart} setCart={setCart} />
+        <Navbar
+  cart={cart}
+  setCart={setCart}
+  setSearchOpen={setSearchOpen}
+/>
 
         
 
