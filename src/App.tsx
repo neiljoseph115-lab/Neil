@@ -104,7 +104,6 @@ const [cart, setCart] = useState<any[]>([]);
   onClick={() => {
     setCart([...cart, selectedProduct]);
     setSelectedProduct(null);
-    alert('Added to cart');
   }}
 >
   ADD TO CART
