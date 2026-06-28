@@ -34,13 +34,18 @@ function App() {
           </p>
 
           <div style={styles.buttons}>
-            <button style={styles.primaryButton}>SHOP NOW</button>
+            <button
+  style={styles.primaryButton}
+  onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
+>
+  SHOP NOW
+</button>
             <button style={styles.secondaryButton}>EXPLORE</button>
           </div>
         </div>
       </header>
 
-      <main style={styles.grid}>
+      <main id="products" style={styles.grid}>
         {products.map((product) => (
           <div key={product.name} style={styles.card}>
             <img src={product.image} alt={product.name} style={styles.image} />
