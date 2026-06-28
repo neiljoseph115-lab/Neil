@@ -1,7 +1,13 @@
 import { useState } from 'react';
 import { Search, User, ShoppingBag, Menu, X } from 'lucide-react';
 
-export default function Navbar({ cart }: { cart: any[] }) {
+export default function Navbar({
+  cart,
+  setCart,
+}: {
+  cart: any[];
+  setCart: React.Dispatch<React.SetStateAction<any[]>>;
+}) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
 
