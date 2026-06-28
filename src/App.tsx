@@ -73,7 +73,7 @@ const styles = {
 
   heroContent: {
   textAlign: 'center' as const,
-  paddingTop: '140px',
+  paddingTop: '80px',
   maxWidth: '900px',
   margin: '0 auto',
 },
