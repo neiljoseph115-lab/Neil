@@ -13,6 +13,7 @@ const products = [
 
 function App() {
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
+const [cart, setCart] = useState<any[]>([]);
 
   return (
     <div style={styles.page}>
@@ -96,7 +97,16 @@ function App() {
             <h1 style={styles.productTitle}>{selectedProduct.name}</h1>
             <p style={styles.productPrice}>{selectedProduct.price}</p>
 
-            <button style={styles.addToCartButton}>ADD TO CART</button>
+            <button
+  style={styles.addToCartButton}
+  onClick={() => {
+    setCart([...cart, selectedProduct]);
+    setSelectedProduct(null);
+    alert('Added to cart');
+  }}
+>
+  ADD TO CART
+</button>
           </div>
         </div>
       )}
