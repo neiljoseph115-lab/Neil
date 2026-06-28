@@ -26,7 +26,7 @@ export default function Navbar() {
 
       {cartOpen && (
         <div className="fixed inset-0 z-[100] bg-black/50">
-          <div className="absolute right-0 top-0 h-full w-[78%] max-w-[360px] bg-[#101522] text-white p-6">
+          <div className="absolute right-0 top-0 h-full w-[72%] max-w-[340px] bg-[#101522] text-white p-6">
             <div className="flex items-center justify-between mb-8">
               <h2 className="text-2xl font-bold">Your Cart</h2>
 
