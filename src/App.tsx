@@ -20,6 +20,10 @@ const [cart, setCart] = useState<any[]>([]);
       <header style={styles.hero}>
         <Navbar />
 
+        <p style={{ color: 'white', textAlign: 'center' }}>
+  Cart: {cart.length}
+</p>
+
         <div style={styles.heroContent}>
           <p style={styles.eyebrow}>NEW ESSENTIALS</p>
 
