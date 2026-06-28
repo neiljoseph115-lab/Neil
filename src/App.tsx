@@ -40,7 +40,16 @@ function App() {
 >
   SHOP NOW
 </button>
-            <button style={styles.secondaryButton}>EXPLORE</button>
+            <button
+  style={styles.secondaryButton}
+  onClick={() =>
+    document.getElementById('products')?.scrollIntoView({
+      behavior: 'smooth',
+    })
+  }
+>
+  EXPLORE
+</button>
           </div>
         </div>
       </header>
