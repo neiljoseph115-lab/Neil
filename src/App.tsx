@@ -18,7 +18,7 @@ const [cart, setCart] = useState<any[]>([]);
   return (
     <div style={styles.page}>
       <header style={styles.hero}>
-        <Navbar cart={cart} />
+        <Navbar cart={cart} setCart={serCart} />
 
         
 
