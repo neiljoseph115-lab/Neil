@@ -72,11 +72,11 @@ const styles = {
   },
 
   heroContent: {
-    textAlign: 'center' as const,
-    paddingTop: '190px',
-    maxWidth: '900px',
-    margin: '0 auto',
-  },
+  textAlign: 'center' as const,
+  paddingTop: '140px',
+  maxWidth: '900px',
+  margin: '0 auto',
+},
 
   eyebrow: {
     color: '#9ca3af',
@@ -87,20 +87,20 @@ const styles = {
   },
 
   heroTitle: {
-    fontSize: '4rem',
-    lineHeight: 1.05,
-    fontWeight: 900,
-    margin: '0 0 32px',
-    color: '#fff',
-  },
+  fontSize: '3rem',
+  lineHeight: 1.1,
+  fontWeight: 900,
+  margin: '0 0 24px',
+  color: '#fff',
+},
 
   heroSubtitle: {
-    color: '#b8b8b8',
-    fontSize: '1.25rem',
-    lineHeight: 1.8,
-    fontWeight: 600,
-    margin: '0 0 48px',
-  },
+  color: '#b8b8b8',
+  fontSize: '1rem',
+  lineHeight: 1.7,
+  fontWeight: 600,
+  margin: '0 0 40px',
+},
 
   buttons: {
     display: 'flex',
