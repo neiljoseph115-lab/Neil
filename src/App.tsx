@@ -13,21 +13,19 @@ const products = [
 
 function App() {
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
-const [cart, setCart] = useState<any[]>([]);
+  const [cart, setCart] = useState<any[]>([]);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
 
-const [searchOpen, setSearchOpen] = useState(false);
-const [searchTerm, setSearchTerm] = useState('');
-  
-return (
+  const searchResults = products.filter((product) =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    product.category.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  return (
     <div style={styles.page}>
       <header style={styles.hero}>
-        <Navbar
-  cart={cart}
-  setCart={setCart}
-  setSearchOpen={setSearchOpen}
-/>
-
-        
+        <Navbar cart={cart} setCart={setCart} setSearchOpen={setSearchOpen} />
 
         <div style={styles.heroContent}>
           <p style={styles.eyebrow}>NEW ESSENTIALS</p>
@@ -86,6 +84,54 @@ return (
         ))}
       </main>
 
+      {searchOpen && (
+        <div style={styles.searchOverlay}>
+          <button
+            style={styles.closeButton}
+            onClick={() => {
+              setSearchOpen(false);
+              setSearchTerm('');
+            }}
+          >
+            ×
+          </button>
+
+          <input
+            style={styles.searchInput}
+            placeholder="Search products..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            autoFocus
+          />
+
+          <div style={styles.searchResults}>
+            {searchResults.map((product) => (
+              <div
+                key={product.name}
+                style={styles.searchItem}
+                onClick={() => {
+                  setSelectedProduct(product);
+                  setSearchOpen(false);
+                  setSearchTerm('');
+                }}
+              >
+                <img src={product.image} alt={product.name} style={styles.searchImage} />
+
+                <div>
+                  <h3 style={styles.searchName}>{product.name}</h3>
+                  <p style={styles.searchCategory}>{product.category}</p>
+                  <p style={styles.searchPrice}>{product.price}</p>
+                </div>
+              </div>
+            ))}
+
+            {searchResults.length === 0 && (
+              <p style={styles.noResults}>No products found.</p>
+            )}
+          </div>
+        </div>
+      )}
+
       {selectedProduct && (
         <div style={styles.productOverlay}>
           <div style={styles.productPage}>
@@ -107,14 +153,14 @@ return (
             <p style={styles.productPrice}>{selectedProduct.price}</p>
 
             <button
-  style={styles.addToCartButton}
-  onClick={() => {
-    setCart([...cart, selectedProduct]);
-    setSelectedProduct(null);
-  }}
->
-  ADD TO CART
-</button>
+              style={styles.addToCartButton}
+              onClick={() => {
+                setCart([...cart, selectedProduct]);
+                setSelectedProduct(null);
+              }}
+            >
+              ADD TO CART
+            </button>
           </div>
         </div>
       )}
@@ -246,6 +292,70 @@ const styles = {
     fontSize: '1.2rem',
     margin: 0,
     color: '#fff',
+  },
+
+  searchOverlay: {
+    position: 'fixed' as const,
+    inset: 0,
+    backgroundColor: '#101522',
+    zIndex: 300,
+    padding: '28px',
+    color: '#fff',
+    overflowY: 'auto' as const,
+  },
+
+  searchInput: {
+    width: '100%',
+    padding: '18px',
+    fontSize: '1.1rem',
+    backgroundColor: '#111',
+    color: '#fff',
+    border: '1px solid rgba(255,255,255,0.2)',
+    marginBottom: '28px',
+    outline: 'none',
+  },
+
+  searchResults: {
+    display: 'flex',
+    flexDirection: 'column' as const,
+    gap: '18px',
+  },
+
+  searchItem: {
+    display: 'flex',
+    gap: '16px',
+    alignItems: 'center',
+    cursor: 'pointer',
+    borderBottom: '1px solid rgba(255,255,255,0.1)',
+    paddingBottom: '16px',
+  },
+
+  searchImage: {
+    width: '80px',
+    height: '80px',
+    objectFit: 'cover' as const,
+    borderRadius: '10px',
+  },
+
+  searchName: {
+    margin: '0 0 4px',
+    fontSize: '1rem',
+  },
+
+  searchCategory: {
+    margin: '0 0 4px',
+    color: '#aaa',
+    fontSize: '0.85rem',
+  },
+
+  searchPrice: {
+    margin: 0,
+    color: '#fff',
+  },
+
+  noResults: {
+    color: '#aaa',
+    fontSize: '1rem',
   },
 
   productOverlay: {
