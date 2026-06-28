@@ -30,7 +30,7 @@ export default function Navbar() {
             </button>
           </div>
 
-          <div className="flex flex-col gap-3 text-4xl font-medium uppercase tracking-[5px]">
+          <div className="flex flex-col gap-8 text-4xl font-medium uppercase tracking-[5px]">
             <a href="#">Shop</a>
             <a href="#">Collections</a>
             <a href="#">Our Story</a>
