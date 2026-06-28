@@ -4,9 +4,11 @@ import { Search, User, ShoppingBag, Menu, X } from 'lucide-react';
 export default function Navbar({
   cart,
   setCart,
+  setSearchOpen,
 }: {
   cart: any[];
   setCart: React.Dispatch<React.SetStateAction<any[]>>;
+  setSearchOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
@@ -21,7 +23,9 @@ export default function Navbar({
         <div className="text-3xl font-light tracking-[4px]">NEIL</div>
 
         <div className="flex items-center gap-6">
-          <Search className="w-6 h-6" strokeWidth={1.7} />
+          <button onClick={() => setSearchOpen(true)} aria-label="Open search">
+  <Search className="w-6 h-6" strokeWidth={1.7} />
+</button>
           <User className="w-6 h-6" strokeWidth={1.7} />
 
           <button onClick={() => setCartOpen(true)} className="relative" aria-label="Open cart">
