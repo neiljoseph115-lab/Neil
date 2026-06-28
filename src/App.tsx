@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Navbar from './Navbar';
 
 const products = [
@@ -11,6 +12,8 @@ const products = [
 ];
 
 function App() {
+  const [selectedProduct, setSelectedProduct] = useState<any>(null);
+
   return (
     <div style={styles.page}>
       <header style={styles.hero}>
@@ -35,28 +38,33 @@ function App() {
 
           <div style={styles.buttons}>
             <button
-  style={styles.primaryButton}
-  onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
->
-  SHOP NOW
-</button>
+              style={styles.primaryButton}
+              onClick={() =>
+                document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })
+              }
+            >
+              SHOP NOW
+            </button>
+
             <button
-  style={styles.secondaryButton}
-  onClick={() =>
-    document.getElementById('products')?.scrollIntoView({
-      behavior: 'smooth',
-    })
-  }
->
-  EXPLORE
-</button>
+              style={styles.secondaryButton}
+              onClick={() =>
+                document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })
+              }
+            >
+              EXPLORE
+            </button>
           </div>
         </div>
       </header>
 
       <main id="products" style={styles.grid}>
         {products.map((product) => (
-          <div key={product.name} style={styles.card}>
+          <div
+            key={product.name}
+            style={styles.card}
+            onClick={() => setSelectedProduct(product)}
+          >
             <img src={product.image} alt={product.name} style={styles.image} />
 
             <div style={styles.info}>
@@ -67,6 +75,31 @@ function App() {
           </div>
         ))}
       </main>
+
+      {selectedProduct && (
+        <div style={styles.productOverlay}>
+          <div style={styles.productPage}>
+            <button
+              style={styles.closeButton}
+              onClick={() => setSelectedProduct(null)}
+            >
+              ×
+            </button>
+
+            <img
+              src={selectedProduct.image}
+              alt={selectedProduct.name}
+              style={styles.productImage}
+            />
+
+            <p style={styles.category}>{selectedProduct.category}</p>
+            <h1 style={styles.productTitle}>{selectedProduct.name}</h1>
+            <p style={styles.productPrice}>{selectedProduct.price}</p>
+
+            <button style={styles.addToCartButton}>ADD TO CART</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -86,11 +119,11 @@ const styles = {
   },
 
   heroContent: {
-  textAlign: 'center' as const,
-  paddingTop: '120px',
-  maxWidth: '900px',
-  margin: '0 auto',
-},
+    textAlign: 'center' as const,
+    paddingTop: '120px',
+    maxWidth: '900px',
+    margin: '0 auto',
+  },
 
   eyebrow: {
     color: '#9ca3af',
@@ -101,52 +134,52 @@ const styles = {
   },
 
   heroTitle: {
-  fontSize: '3rem',
-  lineHeight: 1.1,
-  fontWeight: 900,
-  margin: '0 0 24px',
-  color: '#fff',
-},
+    fontSize: '3rem',
+    lineHeight: 1.1,
+    fontWeight: 900,
+    margin: '0 0 24px',
+    color: '#fff',
+  },
 
   heroSubtitle: {
-  color: '#b8b8b8',
-  fontSize: '1rem',
-  lineHeight: 1.7,
-  fontWeight: 600,
-  margin: '0 0 40px',
-},
+    color: '#b8b8b8',
+    fontSize: '1rem',
+    lineHeight: 1.7,
+    fontWeight: 600,
+    margin: '0 0 40px',
+  },
 
   buttons: {
-  display: 'flex',
-  justifyContent: 'center',
-  gap: '20px',
-  flexWrap: 'nowrap' as const,
-  marginTop: '40px',
-},
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '20px',
+    flexWrap: 'nowrap' as const,
+    marginTop: '40px',
+  },
 
   primaryButton: {
-  width: '220px',
-  height: '60px',
-  border: 'none',
-  backgroundColor: '#fff',
-  color: '#000',
-  fontWeight: 700,
-  fontSize: '1rem',
-  letterSpacing: '2px',
-  cursor: 'pointer',
-},
+    width: '220px',
+    height: '60px',
+    border: 'none',
+    backgroundColor: '#fff',
+    color: '#000',
+    fontWeight: 700,
+    fontSize: '1rem',
+    letterSpacing: '2px',
+    cursor: 'pointer',
+  },
 
   secondaryButton: {
-  width: '220px',
-  height: '60px',
-  border: '1px solid #fff',
-  backgroundColor: 'transparent',
-  color: '#fff',
-  fontWeight: 400,
-  fontSize: '1rem',
-  letterSpacing: '2px',
-  cursor: 'pointer',
-},
+    width: '220px',
+    height: '60px',
+    border: '1px solid #fff',
+    backgroundColor: 'transparent',
+    color: '#fff',
+    fontWeight: 400,
+    fontSize: '1rem',
+    letterSpacing: '2px',
+    cursor: 'pointer',
+  },
 
   grid: {
     display: 'grid',
@@ -163,6 +196,7 @@ const styles = {
     border: '1px solid rgba(255,255,255,0.12)',
     borderRadius: '18px',
     overflow: 'hidden',
+    cursor: 'pointer',
   },
 
   image: {
@@ -194,6 +228,57 @@ const styles = {
     fontSize: '1.2rem',
     margin: 0,
     color: '#fff',
+  },
+
+  productOverlay: {
+    position: 'fixed' as const,
+    inset: 0,
+    backgroundColor: '#101522',
+    zIndex: 200,
+    overflowY: 'auto' as const,
+    padding: '28px',
+  },
+
+  productPage: {
+    maxWidth: '700px',
+    margin: '0 auto',
+    color: '#fff',
+  },
+
+  closeButton: {
+    fontSize: '3rem',
+    background: 'transparent',
+    color: '#fff',
+    border: 'none',
+    marginBottom: '20px',
+    cursor: 'pointer',
+  },
+
+  productImage: {
+    width: '100%',
+    borderRadius: '18px',
+    marginBottom: '28px',
+  },
+
+  productTitle: {
+    fontSize: '2.2rem',
+    margin: '10px 0',
+  },
+
+  productPrice: {
+    fontSize: '1.5rem',
+    marginBottom: '28px',
+  },
+
+  addToCartButton: {
+    width: '100%',
+    padding: '18px',
+    backgroundColor: '#fff',
+    color: '#000',
+    border: 'none',
+    fontWeight: 800,
+    letterSpacing: '4px',
+    cursor: 'pointer',
   },
 };
 
