@@ -26,6 +26,7 @@ export default function Navbar({
 
           <button onClick={() => setCartOpen(true)} className="relative" aria-label="Open cart">
             <ShoppingBag className="w-6 h-6" strokeWidth={1.7} />
+
             {cart.length > 0 && (
               <span className="absolute -top-2 -right-2 bg-white text-black text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
                 {cart.length}
@@ -62,11 +63,19 @@ export default function Navbar({
                       className="w-20 h-20 object-cover rounded-lg"
                     />
 
-                    <div>
+                    <div className="flex-1">
                       <h3 className="font-semibold text-sm">{item.name}</h3>
                       <p className="text-gray-400 text-sm">{item.category}</p>
                       <p className="text-white mt-1">{item.price}</p>
                     </div>
+
+                    <button
+                      onClick={() => setCart(cart.filter((_, i) => i !== index))}
+                      className="text-gray-400 text-xl"
+                      aria-label="Remove item"
+                    >
+                      ×
+                    </button>
                   </div>
                 ))}
 
