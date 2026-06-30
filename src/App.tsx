@@ -178,13 +178,13 @@ const styles = {
 
   hero: {
     backgroundColor: '#101522',
-    minHeight: '100vh',
-    padding: '0 28px 60px',
+    minHeight: '85vh',
+    padding: '0 24px 40px',
   },
 
   heroContent: {
     textAlign: 'center' as const,
-    paddingTop: '120px',
+    paddingTop: '105px',
     maxWidth: '900px',
     margin: '0 auto',
   },
@@ -198,10 +198,10 @@ const styles = {
   },
 
   heroTitle: {
-    fontSize: '3rem',
-    lineHeight: 1.1,
+    fontSize: '2.65rem',
+    lineHeight: 1.05,
     fontWeight: 900,
-    margin: '0 0 24px',
+    margin: '0 0 22px',
     color: '#fff',
   },
 
@@ -246,14 +246,14 @@ const styles = {
   },
 
   grid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-    gap: '32px',
-    maxWidth: '1200px',
-    margin: '0 auto',
-    padding: '40px 28px',
-    backgroundColor: '#101522',
-  },
+  display: 'grid',
+  gridTemplateColumns: '1fr',
+  gap: '28px',
+  maxWidth: '1200px',
+  margin: '0 auto',
+  padding: '28px 24px 50px',
+  backgroundColor: '#101522',
+},
 
   card: {
     backgroundColor: '#111',
@@ -265,7 +265,7 @@ const styles = {
 
   image: {
     width: '100%',
-    height: '330px',
+    height: '300px',
     objectFit: 'cover' as const,
     display: 'block',
   },
