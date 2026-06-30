@@ -5,10 +5,12 @@ export default function Navbar({
   cart,
   setCart,
   setSearchOpen,
+  setCheckoutOpen,
 }: {
   cart: any[];
   setCart: React.Dispatch<React.SetStateAction<any[]>>;
   setSearchOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setCheckoutOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
@@ -55,7 +57,11 @@ export default function Navbar({
 
           <User className="w-5 h-5" strokeWidth={1.7} />
 
-          <button onClick={() => setCartOpen(true)} className="relative" aria-label="Open cart">
+          <button
+            onClick={() => setCartOpen(true)}
+            className="relative"
+            aria-label="Open cart"
+          >
             <ShoppingBag className="w-5 h-5" strokeWidth={1.7} />
 
             {cartCount > 0 && (
@@ -88,10 +94,14 @@ export default function Navbar({
               <div className="space-y-5 mb-8">
                 {cart.map((item, index) => {
                   const quantity = item.quantity || 1;
-                  const itemTotal = Number(item.price.replace('$', '')) * quantity;
+                  const itemTotal =
+                    Number(item.price.replace('$', '')) * quantity;
 
                   return (
-                    <div key={index} className="flex gap-4 border-b border-white/10 pb-4">
+                    <div
+                      key={index}
+                      className="flex gap-4 border-b border-white/10 pb-4"
+                    >
                       <img
                         src={item.image}
                         alt={item.name}
@@ -100,10 +110,15 @@ export default function Navbar({
 
                       <div className="flex-1">
                         <h3 className="font-semibold text-sm">{item.name}</h3>
-                        <p className="text-gray-400 text-sm">{item.category}</p>
+
+                        <p className="text-gray-400 text-sm">
+                          {item.category}
+                        </p>
 
                         {item.size && (
-                          <p className="text-gray-400 text-sm">Size: {item.size}</p>
+                          <p className="text-gray-400 text-sm">
+                            Size: {item.size}
+                          </p>
                         )}
 
                         <div className="flex items-center gap-3 mt-2">
@@ -128,7 +143,9 @@ export default function Navbar({
                       </div>
 
                       <button
-                        onClick={() => setCart(cart.filter((_, i) => i !== index))}
+                        onClick={() =>
+                          setCart(cart.filter((_, i) => i !== index))
+                        }
                         className="text-gray-400 text-xl"
                         aria-label="Remove item"
                       >
@@ -145,7 +162,13 @@ export default function Navbar({
               </div>
             )}
 
-            <button className="w-full bg-white text-black py-4 font-bold tracking-[3px]">
+            <button
+              onClick={() => {
+                setCartOpen(false);
+                setCheckoutOpen(true);
+              }}
+              className="w-full bg-white text-black py-4 font-bold tracking-[3px]"
+            >
               CHECKOUT
             </button>
           </div>
