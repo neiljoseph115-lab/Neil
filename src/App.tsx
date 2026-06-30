@@ -16,11 +16,16 @@ function App() {
   const [cart, setCart] = useState<any[]>([]);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedSize, setSelectedSize] = useState('');
 
   const searchResults = products.filter((product) =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     product.category.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const sizes = selectedProduct?.category === 'Sneakers'
+    ? ['7', '8', '9', '10', '11', '12']
+    : ['S', 'M', 'L', 'XL'];
 
   return (
     <div style={styles.page}>
@@ -71,7 +76,10 @@ function App() {
           <div
             key={product.name}
             style={styles.card}
-            onClick={() => setSelectedProduct(product)}
+            onClick={() => {
+              setSelectedProduct(product);
+              setSelectedSize('');
+            }}
           >
             <img src={product.image} alt={product.name} style={styles.image} />
 
@@ -111,6 +119,7 @@ function App() {
                 style={styles.searchItem}
                 onClick={() => {
                   setSelectedProduct(product);
+                  setSelectedSize('');
                   setSearchOpen(false);
                   setSearchTerm('');
                 }}
@@ -137,7 +146,10 @@ function App() {
           <div style={styles.productPage}>
             <button
               style={styles.closeButton}
-              onClick={() => setSelectedProduct(null)}
+              onClick={() => {
+                setSelectedProduct(null);
+                setSelectedSize('');
+              }}
             >
               ×
             </button>
@@ -152,11 +164,36 @@ function App() {
             <h1 style={styles.productTitle}>{selectedProduct.name}</h1>
             <p style={styles.productPrice}>{selectedProduct.price}</p>
 
+            <div style={styles.sizeSection}>
+              <p style={styles.sizeLabel}>Select Size</p>
+
+              <div style={styles.sizeGrid}>
+                {sizes.map((size) => (
+                  <button
+                    key={size}
+                    style={{
+                      ...styles.sizeButton,
+                      ...(selectedSize === size ? styles.selectedSizeButton : {}),
+                    }}
+                    onClick={() => setSelectedSize(size)}
+                  >
+                    {size}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <button
               style={styles.addToCartButton}
               onClick={() => {
-                setCart([...cart, selectedProduct]);
+                if (!selectedSize) {
+                  alert('Please select a size');
+                  return;
+                }
+
+                setCart([...cart, { ...selectedProduct, size: selectedSize }]);
                 setSelectedProduct(null);
+                setSelectedSize('');
               }}
             >
               ADD TO CART
@@ -246,14 +283,14 @@ const styles = {
   },
 
   grid: {
-  display: 'grid',
-  gridTemplateColumns: '1fr',
-  gap: '28px',
-  maxWidth: '1200px',
-  margin: '0 auto',
-  padding: '28px 24px 50px',
-  backgroundColor: '#101522',
-},
+    display: 'grid',
+    gridTemplateColumns: '1fr',
+    gap: '28px',
+    maxWidth: '1200px',
+    margin: '0 auto',
+    padding: '28px 24px 50px',
+    backgroundColor: '#101522',
+  },
 
   card: {
     backgroundColor: '#111',
@@ -396,6 +433,38 @@ const styles = {
   productPrice: {
     fontSize: '1.5rem',
     marginBottom: '28px',
+  },
+
+  sizeSection: {
+    marginBottom: '28px',
+  },
+
+  sizeLabel: {
+    fontSize: '0.9rem',
+    textTransform: 'uppercase' as const,
+    letterSpacing: '2px',
+    color: '#aaa',
+    marginBottom: '12px',
+  },
+
+  sizeGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(4, 1fr)',
+    gap: '10px',
+  },
+
+  sizeButton: {
+    padding: '14px',
+    backgroundColor: 'transparent',
+    color: '#fff',
+    border: '1px solid rgba(255,255,255,0.35)',
+    fontWeight: 700,
+    cursor: 'pointer',
+  },
+
+  selectedSizeButton: {
+    backgroundColor: '#fff',
+    color: '#000',
   },
 
   addToCartButton: {
