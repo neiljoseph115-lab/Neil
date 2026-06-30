@@ -19,17 +19,17 @@ function App() {
   const [selectedSize, setSelectedSize] = useState('');
   const [checkoutOpen, setCheckoutOpen] = useState(false);
 
-useEffect(() => {
-  const savedCart = localStorage.getItem('neil-cart');
+  useEffect(() => {
+    const savedCart = localStorage.getItem('neil-cart');
 
-  if (savedCart) {
-    setCart(JSON.parse(savedCart));
-  }
-}, []);
+    if (savedCart) {
+      setCart(JSON.parse(savedCart));
+    }
+  }, []);
 
-useEffect(() => {
-  localStorage.setItem('neil-cart', JSON.stringify(cart));
-}, [cart]);
+  useEffect(() => {
+    localStorage.setItem('neil-cart', JSON.stringify(cart));
+  }, [cart]);
 
   const searchResults = products.filter((product) =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -40,10 +40,20 @@ useEffect(() => {
     ? ['7', '8', '9', '10', '11', '12']
     : ['S', 'M', 'L', 'XL'];
 
+  const checkoutTotal = cart.reduce((sum, item) => {
+    const price = Number(item.price.replace('$', ''));
+    return sum + price * (item.quantity || 1);
+  }, 0);
+
   return (
     <div style={styles.page}>
       <header style={styles.hero}>
-        <Navbar cart={cart} setCart={setCart} setSearchOpen={setSearchOpen} />
+        <Navbar
+          cart={cart}
+          setCart={setCart}
+          setSearchOpen={setSearchOpen}
+          setCheckoutOpen={setCheckoutOpen}
+        />
 
         <div style={styles.heroContent}>
           <p style={styles.eyebrow}>NEW ESSENTIALS</p>
@@ -205,26 +215,77 @@ useEffect(() => {
                 }
 
                 const existingItem = cart.find(
-  (item) => item.name === selectedProduct.name && item.size === selectedSize
-);
+                  (item) => item.name === selectedProduct.name && item.size === selectedSize
+                );
 
-if (existingItem) {
-  setCart(
-    cart.map((item) =>
-      item.name === selectedProduct.name && item.size === selectedSize
-        ? { ...item, quantity: (item.quantity || 1) + 1 }
-        : item
-    )
-  );
-} else {
-  setCart([...cart, { ...selectedProduct, size: selectedSize, quantity: 1 }]);
-}
+                if (existingItem) {
+                  setCart(
+                    cart.map((item) =>
+                      item.name === selectedProduct.name && item.size === selectedSize
+                        ? { ...item, quantity: (item.quantity || 1) + 1 }
+                        : item
+                    )
+                  );
+                } else {
+                  setCart([...cart, { ...selectedProduct, size: selectedSize, quantity: 1 }]);
+                }
 
-setSelectedProduct(null);
-setSelectedSize('');
+                setSelectedProduct(null);
+                setSelectedSize('');
               }}
             >
               ADD TO CART
+            </button>
+          </div>
+        </div>
+      )}
+
+      {checkoutOpen && (
+        <div style={styles.productOverlay}>
+          <div style={styles.productPage}>
+            <button
+              style={styles.closeButton}
+              onClick={() => setCheckoutOpen(false)}
+            >
+              ×
+            </button>
+
+            <h1 style={styles.productTitle}>Checkout</h1>
+
+            <input placeholder="Full Name" style={styles.checkoutInput} />
+            <input placeholder="Email" style={styles.checkoutInput} />
+            <input placeholder="Shipping Address" style={styles.checkoutInput} />
+
+            <div style={styles.checkoutSummary}>
+              <h2 style={styles.checkoutHeading}>Order Summary</h2>
+
+              {cart.map((item, index) => {
+                const quantity = item.quantity || 1;
+                const itemTotal = Number(item.price.replace('$', '')) * quantity;
+
+                return (
+                  <div key={index} style={styles.checkoutItem}>
+                    <span>
+                      {item.name} {item.size && `(Size ${item.size})`} × {quantity}
+                    </span>
+                    <span>${itemTotal}</span>
+                  </div>
+                );
+              })}
+
+              <div style={styles.checkoutTotal}>
+                <span>Total</span>
+                <span>${checkoutTotal}</span>
+              </div>
+            </div>
+
+            <button
+              style={{
+                ...styles.addToCartButton,
+                marginTop: '30px',
+              }}
+            >
+              PLACE ORDER
             </button>
           </div>
         </div>
@@ -504,6 +565,45 @@ const styles = {
     fontWeight: 800,
     letterSpacing: '4px',
     cursor: 'pointer',
+  },
+
+  checkoutInput: {
+    width: '100%',
+    padding: '16px',
+    marginTop: '16px',
+    backgroundColor: '#111',
+    color: '#fff',
+    border: '1px solid rgba(255,255,255,0.15)',
+    outline: 'none',
+    fontSize: '1rem',
+  },
+
+  checkoutSummary: {
+    marginTop: '30px',
+  },
+
+  checkoutHeading: {
+    fontSize: '1.3rem',
+    marginBottom: '16px',
+  },
+
+  checkoutItem: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    gap: '16px',
+    marginTop: '12px',
+    color: '#ccc',
+    fontSize: '0.95rem',
+  },
+
+  checkoutTotal: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    borderTop: '1px solid rgba(255,255,255,0.15)',
+    marginTop: '20px',
+    paddingTop: '20px',
+    fontWeight: 800,
+    fontSize: '1.2rem',
   },
 };
 
