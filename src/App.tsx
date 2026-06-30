@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 
 const products = [
@@ -17,6 +17,18 @@ function App() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
+
+useEffect(() => {
+  const savedCart = localStorage.getItem('neil-cart');
+
+  if (savedCart) {
+    setCart(JSON.parse(savedCart));
+  }
+}, []);
+
+useEffect(() => {
+  localStorage.setItem('neil-cart', JSON.stringify(cart));
+}, [cart]);
 
   const searchResults = products.filter((product) =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
