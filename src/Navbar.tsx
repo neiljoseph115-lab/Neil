@@ -100,7 +100,7 @@ export default function Navbar({
       {menuOpen && (
         <div className="fixed inset-0 z-[100] bg-[#101522] text-white px-8 py-8">
           <div className="flex items-center justify-between mb-20">
-            <div className="text-3xl font-light tracking-[6px]">NEIL</div>
+            <div className="text-3xl font-light tracking-[3px]">NEIL</div>
 
             <button onClick={() => setMenuOpen(false)} aria-label="Close menu">
               <X className="w-8 h-8" strokeWidth={1.7} />
