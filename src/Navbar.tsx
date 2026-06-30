@@ -13,16 +13,40 @@ export default function Navbar({
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
 
+  const cartCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+
   const total = cart.reduce((sum, item) => {
-    return sum + Number(item.price.replace('$', ''));
+    const price = Number(item.price.replace('$', ''));
+    return sum + price * (item.quantity || 1);
   }, 0);
+
+  const increaseQuantity = (index: number) => {
+    setCart(
+      cart.map((item, i) =>
+        i === index ? { ...item, quantity: (item.quantity || 1) + 1 } : item
+      )
+    );
+  };
+
+  const decreaseQuantity = (index: number) => {
+    const item = cart[index];
+
+    if ((item.quantity || 1) <= 1) {
+      setCart(cart.filter((_, i) => i !== index));
+      return;
+    }
+
+    setCart(
+      cart.map((item, i) =>
+        i === index ? { ...item, quantity: (item.quantity || 1) - 1 } : item
+      )
+    );
+  };
 
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 h-[80px] flex items-center justify-between px-4 bg-[#101522] text-[#f5f1e8]">
-        <div className="text-2xl font-medium tracking-[-1px]">
-          NEIL
-        </div>
+        <div className="text-2xl font-medium tracking-[-1px]">NEIL</div>
 
         <div className="flex items-center gap-2">
           <button onClick={() => setSearchOpen(true)} aria-label="Open search">
@@ -31,16 +55,12 @@ export default function Navbar({
 
           <User className="w-5 h-5" strokeWidth={1.7} />
 
-          <button
-            onClick={() => setCartOpen(true)}
-            className="relative"
-            aria-label="Open cart"
-          >
+          <button onClick={() => setCartOpen(true)} className="relative" aria-label="Open cart">
             <ShoppingBag className="w-5 h-5" strokeWidth={1.7} />
 
-            {cart.length > 0 && (
+            {cartCount > 0 && (
               <span className="absolute -top-2 -right-2 bg-white text-black text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
-                {cart.length}
+                {cartCount}
               </span>
             )}
           </button>
@@ -57,62 +77,66 @@ export default function Navbar({
             <div className="flex items-center justify-between mb-8">
               <h2 className="text-2xl font-bold">Your Cart</h2>
 
-              <button
-                onClick={() => setCartOpen(false)}
-                aria-label="Close cart"
-              >
+              <button onClick={() => setCartOpen(false)} aria-label="Close cart">
                 <X className="w-7 h-7" />
               </button>
             </div>
 
             {cart.length === 0 ? (
-              <p className="text-gray-400 mb-8">
-                Your cart is empty.
-              </p>
+              <p className="text-gray-400 mb-8">Your cart is empty.</p>
             ) : (
               <div className="space-y-5 mb-8">
-                {cart.map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex gap-4 border-b border-white/10 pb-4"
-                  >
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="w-20 h-20 object-cover rounded-lg"
-                    />
+                {cart.map((item, index) => {
+                  const quantity = item.quantity || 1;
+                  const itemTotal = Number(item.price.replace('$', '')) * quantity;
 
-                    <div className="flex-1">
-                      <h3 className="font-semibold text-sm">
-                        {item.name}
-                      </h3>
+                  return (
+                    <div key={index} className="flex gap-4 border-b border-white/10 pb-4">
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-20 h-20 object-cover rounded-lg"
+                      />
 
-                      <p className="text-gray-400 text-sm">
-                        {item.category}
-                      </p>
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-sm">{item.name}</h3>
+                        <p className="text-gray-400 text-sm">{item.category}</p>
 
-                      {item.size && (
-                        <p className="text-gray-400 text-sm">
-                          Size: {item.size}
-                        </p>
-                      )}
+                        {item.size && (
+                          <p className="text-gray-400 text-sm">Size: {item.size}</p>
+                        )}
 
-                      <p className="text-white mt-1">
-                        {item.price}
-                      </p>
+                        <div className="flex items-center gap-3 mt-2">
+                          <button
+                            onClick={() => decreaseQuantity(index)}
+                            className="w-7 h-7 border border-white/30 flex items-center justify-center"
+                          >
+                            −
+                          </button>
+
+                          <span className="text-sm">Qty: {quantity}</span>
+
+                          <button
+                            onClick={() => increaseQuantity(index)}
+                            className="w-7 h-7 border border-white/30 flex items-center justify-center"
+                          >
+                            +
+                          </button>
+                        </div>
+
+                        <p className="text-white mt-2">${itemTotal}</p>
+                      </div>
+
+                      <button
+                        onClick={() => setCart(cart.filter((_, i) => i !== index))}
+                        className="text-gray-400 text-xl"
+                        aria-label="Remove item"
+                      >
+                        ×
+                      </button>
                     </div>
-
-                    <button
-                      onClick={() =>
-                        setCart(cart.filter((_, i) => i !== index))
-                      }
-                      className="text-gray-400 text-xl"
-                      aria-label="Remove item"
-                    >
-                      ×
-                    </button>
-                  </div>
-                ))}
+                  );
+                })}
 
                 <div className="flex justify-between text-lg font-bold pt-4">
                   <span>Total</span>
@@ -131,14 +155,9 @@ export default function Navbar({
       {menuOpen && (
         <div className="fixed inset-0 z-[100] bg-[#101522] text-white px-8 py-8">
           <div className="flex items-center justify-between mb-20">
-            <div className="text-3xl font-light tracking-[3px]">
-              NEIL
-            </div>
+            <div className="text-3xl font-light tracking-[3px]">NEIL</div>
 
-            <button
-              onClick={() => setMenuOpen(false)}
-              aria-label="Close menu"
-            >
+            <button onClick={() => setMenuOpen(false)} aria-label="Close menu">
               <X className="w-8 h-8" strokeWidth={1.7} />
             </button>
           </div>
