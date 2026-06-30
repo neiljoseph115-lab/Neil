@@ -20,15 +20,22 @@ export default function Navbar({
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 h-[80px] flex items-center justify-between px-4 bg-[#101522] text-[#f5f1e8]">
-        <div className="text-2xl font-medium tracking-[–1px]">NEIL</div>
+        <div className="text-2xl font-medium tracking-[-1px]">
+          NEIL
+        </div>
 
         <div className="flex items-center gap-2">
           <button onClick={() => setSearchOpen(true)} aria-label="Open search">
-  <Search className="w-5 h-5" strokeWidth={1.7} />
-</button>
+            <Search className="w-5 h-5" strokeWidth={1.7} />
+          </button>
+
           <User className="w-5 h-5" strokeWidth={1.7} />
 
-          <button onClick={() => setCartOpen(true)} className="relative" aria-label="Open cart">
+          <button
+            onClick={() => setCartOpen(true)}
+            className="relative"
+            aria-label="Open cart"
+          >
             <ShoppingBag className="w-5 h-5" strokeWidth={1.7} />
 
             {cart.length > 0 && (
@@ -50,17 +57,25 @@ export default function Navbar({
             <div className="flex items-center justify-between mb-8">
               <h2 className="text-2xl font-bold">Your Cart</h2>
 
-              <button onClick={() => setCartOpen(false)} aria-label="Close cart">
+              <button
+                onClick={() => setCartOpen(false)}
+                aria-label="Close cart"
+              >
                 <X className="w-7 h-7" />
               </button>
             </div>
 
             {cart.length === 0 ? (
-              <p className="text-gray-400 mb-8">Your cart is empty.</p>
+              <p className="text-gray-400 mb-8">
+                Your cart is empty.
+              </p>
             ) : (
               <div className="space-y-5 mb-8">
                 {cart.map((item, index) => (
-                  <div key={index} className="flex gap-4 border-b border-white/10 pb-4">
+                  <div
+                    key={index}
+                    className="flex gap-4 border-b border-white/10 pb-4"
+                  >
                     <img
                       src={item.image}
                       alt={item.name}
@@ -68,13 +83,29 @@ export default function Navbar({
                     />
 
                     <div className="flex-1">
-                      <h3 className="font-semibold text-sm">{item.name}</h3>
-                      <p className="text-gray-400 text-sm">{item.category}</p>
-                      <p className="text-white mt-1">{item.price}</p>
+                      <h3 className="font-semibold text-sm">
+                        {item.name}
+                      </h3>
+
+                      <p className="text-gray-400 text-sm">
+                        {item.category}
+                      </p>
+
+                      {item.size && (
+                        <p className="text-gray-400 text-sm">
+                          Size: {item.size}
+                        </p>
+                      )}
+
+                      <p className="text-white mt-1">
+                        {item.price}
+                      </p>
                     </div>
 
                     <button
-                      onClick={() => setCart(cart.filter((_, i) => i !== index))}
+                      onClick={() =>
+                        setCart(cart.filter((_, i) => i !== index))
+                      }
                       className="text-gray-400 text-xl"
                       aria-label="Remove item"
                     >
@@ -100,9 +131,14 @@ export default function Navbar({
       {menuOpen && (
         <div className="fixed inset-0 z-[100] bg-[#101522] text-white px-8 py-8">
           <div className="flex items-center justify-between mb-20">
-            <div className="text-3xl font-light tracking-[3px]">NEIL</div>
+            <div className="text-3xl font-light tracking-[3px]">
+              NEIL
+            </div>
 
-            <button onClick={() => setMenuOpen(false)} aria-label="Close menu">
+            <button
+              onClick={() => setMenuOpen(false)}
+              aria-label="Close menu"
+            >
               <X className="w-8 h-8" strokeWidth={1.7} />
             </button>
           </div>
