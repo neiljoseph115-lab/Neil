@@ -24,12 +24,12 @@ export default function Navbar({
 
         <div className="flex items-center gap-2">
           <button onClick={() => setSearchOpen(true)} aria-label="Open search">
-  <Search className="w-6 h-6" strokeWidth={1.7} />
+  <Search className="w-5 h-5" strokeWidth={1.7} />
 </button>
-          <User className="w-6 h-6" strokeWidth={1.7} />
+          <User className="w-5 h-5" strokeWidth={1.7} />
 
           <button onClick={() => setCartOpen(true)} className="relative" aria-label="Open cart">
-            <ShoppingBag className="w-6 h-6" strokeWidth={1.7} />
+            <ShoppingBag className="w-5 h-5" strokeWidth={1.7} />
 
             {cart.length > 0 && (
               <span className="absolute -top-2 -right-2 bg-white text-black text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
@@ -39,7 +39,7 @@ export default function Navbar({
           </button>
 
           <button onClick={() => setMenuOpen(true)} aria-label="Open menu">
-            <Menu className="w-7 h-7" strokeWidth={1.7} />
+            <Menu className="w-6 h-6" strokeWidth={1.7} />
           </button>
         </div>
       </nav>
