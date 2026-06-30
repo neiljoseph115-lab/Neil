@@ -22,7 +22,7 @@ export default function Navbar({
       <nav className="fixed top-0 left-0 right-0 z-50 h-[80px] flex items-center justify-between px-8 bg-[#101522] text-[#f5f1e8]">
         <div className="text-2xl font-light tracking-[3px]">NEIL</div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
           <button onClick={() => setSearchOpen(true)} aria-label="Open search">
   <Search className="w-6 h-6" strokeWidth={1.7} />
 </button>
