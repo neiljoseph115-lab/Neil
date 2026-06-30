@@ -178,8 +178,8 @@ const styles = {
 
   hero: {
     backgroundColor: '#101522',
-    minHeight: '85vh',
-    padding: '0 24px 40px',
+    minHeight: '72vh',
+    padding: '0 24px 24px',
   },
 
   heroContent: {
