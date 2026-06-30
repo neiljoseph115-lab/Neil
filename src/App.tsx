@@ -17,6 +17,7 @@ function App() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
+  const [checkoutOpen, setCheckoutOpen] = useState(false);
 
 useEffect(() => {
   const savedCart = localStorage.getItem('neil-cart');
