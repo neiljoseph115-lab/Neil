@@ -20,7 +20,7 @@ export default function Navbar({
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 h-[80px] flex items-center justify-between px-4 bg-[#101522] text-[#f5f1e8]">
-        <div className="text-2xl font-light tracking-[3px]">NEIL</div>
+        <div className="text-3xl font-medium tracking-[–1px]">NEIL</div>
 
         <div className="flex items-center gap-2">
           <button onClick={() => setSearchOpen(true)} aria-label="Open search">
