@@ -203,9 +203,24 @@ useEffect(() => {
                   return;
                 }
 
-                setCart([...cart, { ...selectedProduct, size: selectedSize }]);
-                setSelectedProduct(null);
-                setSelectedSize('');
+                const existingItem = cart.find(
+  (item) => item.name === selectedProduct.name && item.size === selectedSize
+);
+
+if (existingItem) {
+  setCart(
+    cart.map((item) =>
+      item.name === selectedProduct.name && item.size === selectedSize
+        ? { ...item, quantity: (item.quantity || 1) + 1 }
+        : item
+    )
+  );
+} else {
+  setCart([...cart, { ...selectedProduct, size: selectedSize, quantity: 1 }]);
+}
+
+setSelectedProduct(null);
+setSelectedSize('');
               }}
             >
               ADD TO CART
