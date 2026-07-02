@@ -612,9 +612,9 @@ const styles = {
 
   checkoutInput: {
     width: '100%',
-    padding: '16px',
-    marginTop: '16px',
-    backgroundColor: '#111',
+    padding: '14px 16px',
+    marginTop: '12px',
+    backgroundColor: '#0f1420',
     color: '#fff',
     border: '1px solid rgba(255,255,255,0.15)',
     outline: 'none',
