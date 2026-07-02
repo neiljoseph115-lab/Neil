@@ -623,6 +623,10 @@ const styles = {
 
   checkoutSummary: {
     marginTop: '30px',
+    padding: '24px',
+    backgroundColor: '#0f1420',
+    border: '1px solid rgba(255,255,255,0.08)',
+    borderRadius: '16px',
   },
 
   checkoutHeading: {
