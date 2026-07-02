@@ -252,9 +252,44 @@ function App() {
 
             <h1 style={styles.productTitle}>Checkout</h1>
 
-            <input placeholder="Full Name" style={styles.checkoutInput} />
-            <input placeholder="Email" style={styles.checkoutInput} />
-            <input placeholder="Shipping Address" style={styles.checkoutInput} />
+            <h2 style={styles.checkoutSectionTitle}>Contact</h2>
+
+<input
+  placeholder="Email Address"
+  style={styles.checkoutInput}
+/>
+
+<h2 style={styles.checkoutSectionTitle}>Shipping</h2>
+
+<input
+  placeholder="First Name"
+  style={styles.checkoutInput}
+/>
+
+<input
+  placeholder="Last Name"
+  style={styles.checkoutInput}
+/>
+
+<input
+  placeholder="Street Address"
+  style={styles.checkoutInput}
+/>
+
+<input
+  placeholder="City"
+  style={styles.checkoutInput}
+/>
+
+<input
+  placeholder="State / Province"
+  style={styles.checkoutInput}
+/>
+
+<input
+  placeholder="ZIP / Postal Code"
+  style={styles.checkoutInput}
+/>
 
             <div style={styles.checkoutSummary}>
               <h2 style={styles.checkoutHeading}>Order Summary</h2>
@@ -295,6 +330,14 @@ function App() {
 }
 
 const styles = {
+   checkoutSectionTitle: {
+   fontSize: '1.1rem',
+   fontWeight: 700,
+   marginTop: '24px',
+   marginBottom: '12px',
+   color: '#fff',
+  },
+
   page: {
     backgroundColor: '#101522',
     color: '#fff',
