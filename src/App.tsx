@@ -22,10 +22,7 @@ function App() {
 
   useEffect(() => {
     const savedCart = localStorage.getItem('neil-cart');
-
-    if (savedCart) {
-      setCart(JSON.parse(savedCart));
-    }
+    if (savedCart) setCart(JSON.parse(savedCart));
   }, []);
 
   useEffect(() => {
@@ -255,42 +252,19 @@ function App() {
 
             <h2 style={styles.checkoutSectionTitle}>Contact</h2>
 
-<input
-  placeholder="Email Address"
-  style={styles.checkoutInput}
-/>
+            <input
+              placeholder="Email Address"
+              style={styles.checkoutInput}
+            />
 
-<h2 style={styles.checkoutSectionTitle}>Shipping</h2>
+            <h2 style={styles.checkoutSectionTitle}>Shipping</h2>
 
-<input
-  placeholder="First Name"
-  style={styles.checkoutInput}
-/>
-
-<input
-  placeholder="Last Name"
-  style={styles.checkoutInput}
-/>
-
-<input
-  placeholder="Street Address"
-  style={styles.checkoutInput}
-/>
-
-<input
-  placeholder="City"
-  style={styles.checkoutInput}
-/>
-
-<input
-  placeholder="State / Province"
-  style={styles.checkoutInput}
-/>
-
-<input
-  placeholder="ZIP / Postal Code"
-  style={styles.checkoutInput}
-/>
+            <input placeholder="First Name" style={styles.checkoutInput} />
+            <input placeholder="Last Name" style={styles.checkoutInput} />
+            <input placeholder="Street Address" style={styles.checkoutInput} />
+            <input placeholder="City" style={styles.checkoutInput} />
+            <input placeholder="State / Province" style={styles.checkoutInput} />
+            <input placeholder="ZIP / Postal Code" style={styles.checkoutInput} />
 
             <div style={styles.checkoutSummary}>
               <h2 style={styles.checkoutHeading}>Order Summary</h2>
@@ -327,42 +301,41 @@ function App() {
                 setOrderPlaced(true);
               }}
             >
-               PLACE ORDER
-             </button>
+              PLACE ORDER
+            </button>
           </div>
         </div>
       )}
-{orderPlaced && (
-  <div style={styles.thankYouOverlay}>
-    <div style={styles.thankYouCard}>
-      <h1 style={styles.thankYouTitle}>
-        THANK YOU
-      </h1>
 
-      <p style={styles.thankYouText}>
-        Your order has been received.
-      </p>
+      {orderPlaced && (
+        <div style={styles.thankYouOverlay}>
+          <div style={styles.thankYouCard}>
+            <h1 style={styles.thankYouTitle}>THANK YOU</h1>
 
-      <button
-        style={styles.primaryButton}
-        onClick={() => setOrderPlaced(false)}
-      >
-        CONTINUE SHOPPING
-      </button>
-    </div>
-  </div>
-)}
+            <p style={styles.thankYouText}>
+              Your order has been received.
+            </p>
+
+            <button
+              style={styles.primaryButton}
+              onClick={() => setOrderPlaced(false)}
+            >
+              CONTINUE SHOPPING
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
 const styles = {
-   checkoutSectionTitle: {
-   fontSize: '1.1rem',
-   fontWeight: 700,
-   marginTop: '24px',
-   marginBottom: '12px',
-   color: '#fff',
+  checkoutSectionTitle: {
+    fontSize: '1.1rem',
+    fontWeight: 700,
+    marginTop: '24px',
+    marginBottom: '12px',
+    color: '#fff',
   },
 
   page: {
@@ -678,6 +651,34 @@ const styles = {
     paddingTop: '20px',
     fontWeight: 800,
     fontSize: '1.2rem',
+  },
+
+  thankYouOverlay: {
+    position: 'fixed' as const,
+    inset: 0,
+    backgroundColor: '#101522',
+    zIndex: 999,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '24px',
+  },
+
+  thankYouCard: {
+    textAlign: 'center' as const,
+    maxWidth: '500px',
+  },
+
+  thankYouTitle: {
+    fontSize: '3rem',
+    fontWeight: 900,
+    marginBottom: '20px',
+  },
+
+  thankYouText: {
+    color: '#aaa',
+    fontSize: '1.1rem',
+    marginBottom: '40px',
   },
 };
 
