@@ -320,12 +320,38 @@ function App() {
                 ...styles.addToCartButton,
                 marginTop: '30px',
               }}
+              onClick={() => {
+                setCart([]);
+                localStorage.removeItem('neil-cart');
+                setCheckoutOpen(false);
+                setOrderPlaced(true);
+              }}
             >
-              PLACE ORDER
-            </button>
+               PLACE ORDER
+             </button>
           </div>
         </div>
       )}
+{orderPlaced && (
+  <div style={styles.thankYouOverlay}>
+    <div style={styles.thankYouCard}>
+      <h1 style={styles.thankYouTitle}>
+        THANK YOU
+      </h1>
+
+      <p style={styles.thankYouText}>
+        Your order has been received.
+      </p>
+
+      <button
+        style={styles.primaryButton}
+        onClick={() => setOrderPlaced(false)}
+      >
+        CONTINUE SHOPPING
+      </button>
+    </div>
+  </div>
+)}
     </div>
   );
 }
