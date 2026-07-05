@@ -294,11 +294,18 @@ function App() {
                 ...styles.addToCartButton,
                 marginTop: '30px',
               }}
-              onClick={() => {
-                setCart([]);
-                localStorage.removeItem('neil-cart');
-                setCheckoutOpen(false);
-                setOrderPlaced(true);
+              onClick={async () => {
+                const response = await fetch('/api/create-checkout-session', {
+                  method: 'POST',
+                });
+
+                const data = await response.json();
+
+                if (data.id) {
+                   window.location.href = data.url;
+                } else {
+                  alert('Something went wrong with checkout.');
+                }
               }}
             >
               PLACE ORDER
