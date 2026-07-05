@@ -25,8 +25,8 @@ export default async function handler(req: any, res: any) {
         },
       ],
       mode: 'payment',
-      success_url: 'https://your-site.vercel.app/success',
-      cancel_url: 'https://your-site.vercel.app/cancel',
+      success_url: 'https://neil-liard.vercel.app',
+      cancel_url: 'https://neil-liard.vercel.app',
     });
 
     res.status(200).json({ id: session.id });
