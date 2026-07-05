@@ -302,6 +302,7 @@ function App() {
                 });
 
                 const data = await response.json();
+                alert(JSON.stringify(data));
 
                 if (data.url) {
                   window.location.href = data.url;
