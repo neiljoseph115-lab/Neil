@@ -302,6 +302,8 @@ function App() {
                 });
 
                 const data = await response.json();
+
+                alert('Response received');
                 alert(JSON.stringify(data));
 
                 if (data.url) {
