@@ -301,8 +301,9 @@ function App() {
 
                 const data = await response.json();
 
-                if (data.id) {
-                   window.location.href = data.url;
+                if (data.url) {
+                    window.location.href = data.url;
+                }
                 } else {
                   alert('Something went wrong with checkout.');
                 }
