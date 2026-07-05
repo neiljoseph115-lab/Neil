@@ -295,18 +295,20 @@ function App() {
                 marginTop: '30px',
               }}
               onClick={async () => {
-                const response = await fetch('/api/create-checkout-session', {
-                  method: 'POST',
-                });
+  alert('Starting checkout...');
 
-                const data = await response.json();
+  const response = await fetch('/api/create-checkout-session', {
+    method: 'POST',
+  });
 
-                if (data.url) {
-                    window.location.href = data.url;
-                } else {
-                  alert('Something went wrong with checkout.');
-                }
-              }}
+  const data = await response.json();
+
+  if (data.url) {
+    window.location.href = data.url;
+  } else {
+    alert('Something went wrong with checkout.');
+  }
+}}
             >
               PLACE ORDER
             </button>
