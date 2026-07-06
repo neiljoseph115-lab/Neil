@@ -12,18 +12,18 @@ export default async function handler(req: any, res: any) {
   try {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
-      line_items: [
-        {
-          price_data: {
-            currency: 'usd',
-            product_data: {
-              name: 'NEIL Product',
-            },
-            unit_amount: 5000,
+
+      line_items: req.body.items.map((item: any) => ({
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: item.name,
           },
-          quantity: 1,
+          unit_amount: Math.round(Number(item.price.replace('$', '')) * 100),
         },
-      ],
+        quantity: item.quantity || 1,
+      })),
+
       mode: 'payment',
       success_url: 'https://neil-liard.vercel.app',
       cancel_url: 'https://neil-liard.vercel.app',
