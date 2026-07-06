@@ -33,3 +33,4 @@ export default async function handler(req: any, res: any) {
   } catch (err: any) {
     res.status(500).json({ error: err.message });
   }
+}
