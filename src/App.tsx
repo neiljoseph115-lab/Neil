@@ -295,16 +295,11 @@ function App() {
                 marginTop: '30px',
               }}
               onClick={async () => {
-                alert('Starting checkout...');
-
                 const response = await fetch('/api/create-checkout-session', {
                   method: 'POST',
                 });
 
                 const data = await response.json();
-
-                alert('Response received');
-                alert(JSON.stringify(data));
 
                 if (data.url) {
                   window.location.href = data.url;
