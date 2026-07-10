@@ -390,26 +390,28 @@ const styles = {
   },
 
   heroTitle: {
-    fontSize: '2.65rem',
-    lineHeight: 1.05,
+    fontSize: 'clamp(3rem, 8vw, 5.5rem)',
+    lineHeight: 1,
     fontWeight: 900,
-    margin: '0 0 22px',
+    letterSpacing: '-3px',
+    margin: '0 0 24px',
     color: '#fff',
   },
 
   heroSubtitle: {
-    color: '#b8b8b8',
-    fontSize: '1rem',
-    lineHeight: 1.7,
-    fontWeight: 600,
-    margin: '0 0 40px',
+    color: '#d1d5db',
+    fontSize: '1.2rem',
+    lineHeight: 1.8,
+    fontWeight: 500,
+    maxWidth: '650px',
+    margin: '0 auto 40px',
   },
 
   buttons: {
     display: 'flex',
     justifyContent: 'center',
-    gap: '20px',
-    flexWrap: 'nowrap' as const,
+    gap: '16px',
+    flexWrap: 'wrap', as const,
     marginTop: '40px',
   },
 
