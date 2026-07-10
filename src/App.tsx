@@ -411,7 +411,7 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     gap: '16px',
-    flexWrap: 'wrap', as const,
+    flexWrap: 'wrap' as const,
     marginTop: '40px',
   },
 
