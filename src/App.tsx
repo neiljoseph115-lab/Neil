@@ -359,9 +359,19 @@ const styles = {
   },
 
   hero: {
-    backgroundColor: '#101522',
-    minHeight: '72vh',
-    padding: '0 24px 24px',
+    minHeight: '90vh',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '120px 24px',
+    position: 'relative',
+    overflow: 'hidden',
+
+    backgroundImage:
+      "linear-gradient(rgba(10,10,10,0.55), rgba(10,10,10,0.75)), url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1600&q=80')",
+
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
   },
 
   heroContent: {
