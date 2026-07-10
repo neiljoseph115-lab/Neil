@@ -278,7 +278,43 @@ function App() {
                     <span>
                       {item.name} {item.size && `(Size ${item.size})`} × {quantity}
                     </span>
-                    <span>${itemTotal}</span>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                      <button
+                        onClick={() =>
+                          setCart(cart.map((cartItem, i) =>
+                            i === index
+                              ? {
+                                  ...cartItem,
+                                  quantity: Math.max(1, (cartItem.quantity || 1) - 1)
+                                }
+                              : cartItem
+                          ))
+                        }
+                     >
+                        −
+                     </button>
+
+                     <span>{quantity}</span>
+
+                     <button
+                       onClick={() =>
+                         setCart(cart.map((cartItem, i) =>
+                           i === index
+                             ? {
+                                 ...cartItem,
+                                 quantity: (cartItem.quantity || 1) + 1
+                               }
+                             : cartItem
+                         ))
+                       }
+                     >
+                       +
+                     </button>
+
+                     <span style={{ marginLeft: '20px', fontWeight: 700 }}>
+                       ${itemTotal}
+                     </span>
+                   </div>
                   </div>
                 );
               })}
