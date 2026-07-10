@@ -314,9 +314,9 @@ function App() {
                      <span style={{ marginLeft: '20px', fontWeight: 700 }}>
                        ${itemTotal}
                      </span>
-                   </div>
-                  </div>
-                );
+                   </div>  
+                   </div>  
+              );  
               })}
 
               <div style={styles.checkoutTotal}>
