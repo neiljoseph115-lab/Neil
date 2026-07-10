@@ -371,7 +371,7 @@ const styles = {
       "linear-gradient(rgba(10,10,10,0.55), rgba(10,10,10,0.75)), url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1600&q=80')",
 
     backgroundSize: 'cover',
-    backgroundPosition: 'center top',
+    backgroundPosition: 'top center',
   },
 
   heroContent: {
