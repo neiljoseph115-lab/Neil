@@ -54,21 +54,21 @@ function App() {
         />
 
         <div style={styles.heroContent}>
-          <p style={styles.eyebrow}>NEW ESSENTIALS</p>
+          <p style={styles.eyebrow}>
+            EST. 2025
+        </p>
 
-          <h1 style={styles.heroTitle}>
-            Engineered
-            <br />
-            for
-            <br />
-            Presence.
-          </h1>
+        <h1 style={styles.heroTitle}>
+          Built Different.
+          <br />
+          Worn Daily.
+        </h1>
 
-          <p style={styles.heroSubtitle}>
-            Premium essentials designed for confidence,
-            <br />
-            discipline, and everyday presence.
-          </p>
+        <p style={styles.heroSubtitle}>
+          Premium sneakers and apparel curated
+          <br />
+          for those who refuse ordinary.
+        </p>
 
           <div style={styles.buttons}>
             <button
@@ -77,7 +77,7 @@ function App() {
                 document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })
               }
             >
-              SHOP NOW
+              SHOP COLLECTION
             </button>
 
             <button
@@ -86,7 +86,7 @@ function App() {
                 document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })
               }
             >
-              EXPLORE
+              NEW ARRIVALS 
             </button>
           </div>
         </div>
